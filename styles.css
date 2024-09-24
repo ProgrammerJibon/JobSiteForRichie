@@ -106,3 +106,10 @@ footer {
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
+
+
+.job-details, .post-job-form, .my-jobs, .login-form, .register-form, .dashboard, .settings-form, .edit-job-form, .landing-page
+{
+    padding: 64px;
+    min-height: calc(95vh - 250px);
+}

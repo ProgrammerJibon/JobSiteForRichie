@@ -52,6 +52,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $success_message = "Your application has been submitted successfully!";
         }
     }
+
+    // Handle job deletion
+    if ($_SESSION['user_type'] == 'employee' && isset($_POST['delete_job'])) {
+        $delete_query = "DELETE FROM jobs WHERE id='$job_id'";
+        if (mysqli_query($conn, $delete_query)) {
+            header('Location: my_jobs.php'); // Redirect to my jobs after deletion
+            exit();
+        } else {
+            $error_message = "Failed to delete job. Please try again.";
+        }
+    }
 }
 
 // Check if the user has already applied for this job
@@ -78,18 +89,23 @@ if ($_SESSION['user_type'] == 'employee') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $job['title']; ?> - Job Details</title>
+    <title><?php echo htmlspecialchars($job['title']); ?> - Job Details</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <?php require_once('header.php'); ?>
 
     <div class="job-details">
-        <h2><?php echo $job['title']; ?></h2>
-        <p><strong>Position:</strong> <?php echo $job['position']; ?></p>
-        <p><strong>Salary:</strong> <?php echo $job['salary']; ?></p>
-        <p><strong>Description:</strong> <?php echo nl2br($job['description']); ?></p>
-        <p><strong>Location:</strong> <?php echo $job['location']; ?></p>
+        <h2>
+            <?php echo htmlspecialchars($job['title']); ?>
+            <?php if ($_SESSION['user_type'] == 'employee' && $job['employer_id'] == $_SESSION['user_id']) { ?>
+                <a href="edit_job.php?job_id=<?php echo $job['id']; ?>" class="edit-button">Edit Job</a>
+            <?php } ?>
+        </h2>
+        <p><strong>Position:</strong> <?php echo htmlspecialchars($job['position']); ?></p>
+        <p><strong>Salary:</strong> <?php echo htmlspecialchars($job['salary']); ?></p>
+        <p><strong>Description:</strong> <?php echo nl2br(htmlspecialchars($job['description'])); ?></p>
+        <p><strong>Location:</strong> <?php echo htmlspecialchars($job['location']); ?></p>
 
         <?php if (isset($success_message)) { echo "<p class='success'>$success_message</p>"; } ?>
         <?php if (isset($error_message)) { echo "<p class='error'>$error_message</p>"; } ?>
@@ -140,6 +156,11 @@ if ($_SESSION['user_type'] == 'employee') {
                     </li>
                 <?php } ?>
             </ul>
+
+            <!-- Delete job button -->
+            <form method="POST">
+                <button type="submit" name="delete_job" class="delete-button">Delete Job</button>
+            </form>
         <?php } ?>
     </div>
 

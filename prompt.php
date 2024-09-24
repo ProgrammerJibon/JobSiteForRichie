@@ -85,6 +85,7 @@
             this page will show the details of job with job title, salary range, post-position, and job description (with location, requirements, benefits)
             and below, only employers can see all of the applicants who submitted CV, 
             and below, only job seekers will see a form if they didn't apply yet, the form will contain a file input fieled for PDF CV, phone number and expected salary input field. and if he already submitted a application, it'll let him edit details with a click and update his application.
+            add the edit button and delete button to job details page
 
 
 
@@ -96,6 +97,9 @@
             this page will show the:
                 if employee: my posted jobs
                 if seeker: my applied jobs
+
+        edit_job.php: 
+            add a page only for empolyeer to update job  details,  
             
 
 

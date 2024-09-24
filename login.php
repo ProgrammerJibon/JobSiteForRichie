@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="password" name="password" required>
 
             <label>
-                <input type="checkbox" name="remember_me"> Remember Me
+                <input type="checkbox" checked name="remember_me"> Remember Me
             </label>
 
             <button type="submit">Login</button>
