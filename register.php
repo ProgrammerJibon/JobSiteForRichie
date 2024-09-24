@@ -2,6 +2,12 @@
 <?php
 require_once('functions.php');
 
+
+if (is_logged_in()) {
+    header('Location: dashboard.php');
+    exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = sanitize($_POST['email']);
     $full_name = sanitize($_POST['full_name']);
@@ -67,9 +73,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php require_once('header.php'); ?>
 
     <div class="register-form">
-        <h2>Register</h2>
-        <?php if (isset($error_message)) { echo "<p class='error'>$error_message</p>"; } ?>
+        
+        
         <form name="registerForm" method="POST" action="register.php" onsubmit="return validateForm()">
+            <h2>
+            <br>
+                <center>Register</center>
+            </h2>
+            <br>
+            <div>
+                <?php if (isset($error_message)) { echo "<p class='error'>$error_message</p>"; } ?>
+            </div>
+
+            <br>
+
             <label for="email">Email:</label>
             <input type="email" name="email" required>
 
@@ -82,13 +99,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="user_type">User Type:</label>
             <select name="user_type" required>
                 <option value="employee">Employee</option>
-                <option value="job_seeker">Job Seeker</option>
+                <option value="job_seeker" selected>Job Seeker</option>
             </select>
 
+            <br>
+            <br>
+
             <button type="submit">Register</button>
+            
+
+            <div>
+                <center>
+                    <br>
+                    <p>Already have an account? <a href="login.php">Login here</a></p>
+                </center>
+            </div>
         </form>
 
-        <p>Already have an account? <a href="login.php">Login here</a></p>
+        
     </div>
 
     <?php require_once('footer.php'); ?>

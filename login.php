@@ -1,6 +1,11 @@
 <?php
 require_once('functions.php');
 
+if (is_logged_in()) {
+    header('Location: dashboard.php');
+    exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -44,9 +49,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php require_once('header.php'); ?>
 
     <div class="login-form">
-        <h2>Login</h2>
-        <?php if (isset($error_message)) { echo "<p class='error'>$error_message</p>"; } ?>
+        
+        
         <form name="loginForm" method="POST" action="login.php" onsubmit="return validateLogin()">
+
+            <h2>
+                <br>
+                <center>Login</center>
+            </h2>
+            <br>
+            <?php if (isset($error_message)) { echo "<p class='error'>$error_message</p>"; } ?>
+            <br>
+
             <label for="email">Email:</label>
             <input type="email" name="email" required>
 
@@ -57,10 +71,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="checkbox" checked name="remember_me"> Remember Me
             </label>
 
+            <br>
+
             <button type="submit">Login</button>
+
+            <div>
+                <center>
+                    <br>
+                    <p>Don't have an account? <a href="register.php">Register here</a></p>
+                    <br>
+                </center>
+            </div>
         </form>
 
-        <p>Don't have an account? <a href="register.php">Register here</a></p>
+        
     </div>
 
     <?php require_once('footer.php'); ?>

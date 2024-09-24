@@ -1,6 +1,10 @@
 /* styles.css */
 
 /* General Styles */
+
+*{
+    box-sizing: border-box;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -13,6 +17,8 @@ header {
     color: #fff;
     padding: 20px 0;
     text-align: center;
+    position: sticky;
+    top: 0px;
 }
 
 nav ul {
@@ -41,7 +47,7 @@ form {
     margin: 20px auto;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 350px;
 }
 
 label {
@@ -53,12 +59,14 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="file"],
-select {
+select,
+textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+
 }
 
 button {
@@ -108,8 +116,7 @@ footer {
 }
 
 
-.job-details, .post-job-form, .my-jobs, .login-form, .register-form, .dashboard, .settings-form, .edit-job-form, .landing-page
-{
+main, .job-details, .post-job-form, .my-jobs, .login-form, .register-form, .dashboard, .settings-form, .edit-job-form, .landing-page{
     padding: 64px;
-    min-height: calc(95vh - 250px);
+    min-height: calc(100vh - 180px);
 }

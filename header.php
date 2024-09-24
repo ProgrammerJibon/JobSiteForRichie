@@ -3,15 +3,16 @@
 <header>
     <nav>
         <ul>
+            <li><a href="/">Home</a></li>
             <?php if (isset($_SESSION['user_type']) && $_SESSION['user_type'] == 'employee') { ?>
-                <li><a href="dashboard.php">Dashboard</a></li>
+                <li><a href="dashboard.php">Jobs</a></li>
                 <li><a href="post_jobs.php">Post a Job</a></li>
-                <li><a href="my_jobs.php">My Jobs</a></li> <!-- Link to My Jobs for employees -->
+                <li><a href="my_jobs.php">My Posted Jobs</a></li> <!-- Link to My Jobs for employees -->
                 <li><a href="settings.php">Settings</a></li>
                 <li><a href="logout.php">Logout</a></li>
             <?php } elseif (isset($_SESSION['user_type']) && $_SESSION['user_type'] == 'job_seeker') { ?>
-                <li><a href="dashboard.php">Dashboard</a></li>
-                <li><a href="my_jobs.php">My Jobs</a></li> <!-- Link to My Jobs for job seekers -->
+                <li><a href="dashboard.php">Find Jobs</a></li>
+                <li><a href="my_jobs.php">My Applied Jobs</a></li> <!-- Link to My Jobs for job seekers -->
                 <li><a href="settings.php">Settings</a></li>
                 <li><a href="logout.php">Logout</a></li>
             <?php } else { ?>
