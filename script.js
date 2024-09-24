@@ -49,3 +49,13 @@ function validateApplication() {
     }
     return true;
 }
+
+
+function change_name_validator_fullname_company(val){
+    var change_name_validator_fullname_company = document.querySelector(".change_name_validator_fullname_company");
+    if(val == "employee"){
+        change_name_validator_fullname_company.innerHTML = "Company Name:";
+    }else{
+        change_name_validator_fullname_company.innerHTML = "Full Name:";
+    }
+}

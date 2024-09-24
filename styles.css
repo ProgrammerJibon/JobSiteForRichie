@@ -36,6 +36,11 @@ nav ul li a {
     text-decoration: none;
 }
 
+nav a:hover{
+    color: white;
+    text-decoration: underline dotted;
+}
+
 h1, h2 {
     margin: 0;
 }

@@ -74,10 +74,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php require_once('header.php'); ?>
 
     <div class="settings-form">
-        <h2>Update Your Settings</h2>
-        <?php if (isset($success_message)) { echo "<p class='success'>$success_message</p>"; } ?>
-        <?php if (isset($error_message)) { echo "<p class='error'>$error_message</p>"; } ?>
+        
         <form name="settingsForm" method="POST" action="settings.php" onsubmit="return validateSettingsForm()">
+            <h2>
+                <center>
+                    <br>
+                    Update Your Settings
+                    <br>
+                </center>
+            </h2>
+            <?php if (isset($success_message)) { echo "<p class='success'>$success_message</p>"; } ?>
+            <?php if (isset($error_message)) { echo "<p class='error'>$error_message</p>"; } ?>
+            <br>
             <label for="field">Field to Update:</label>
             <select name="field" required>
                 <option value="full_name">Full Name</option>

@@ -62,10 +62,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php require_once('header.php'); ?>
 
     <div class="post-job-form">
-        <h2>Post a Job</h2>
-        <?php if (isset($success_message)) { echo "<p class='success'>$success_message</p>"; } ?>
-        <?php if (isset($error_message)) { echo "<p class='error'>$error_message</p>"; } ?>
         <form method="POST" action="post_jobs.php">
+            <div>
+                <h2>
+                    <center>
+                        <br>
+                        Post a Job
+                        <br>
+                    </center>
+                </h2>
+                <?php if (isset($success_message)) { echo "<p class='success'>$success_message</p>"; } ?>
+                <?php if (isset($error_message)) { echo "<p class='error'>$error_message</p>"; } ?>
+            </div>
+            <br>
+
             <label for="title">Job Title:</label>
             <input type="text" name="title" value="<?php echo htmlspecialchars($title); ?>" required>
 

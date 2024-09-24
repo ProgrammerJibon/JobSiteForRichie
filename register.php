@@ -90,17 +90,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="email">Email:</label>
             <input type="email" name="email" required>
 
-            <label for="full_name">Full Name:</label>
+            
+            <label for="user_type">User Type:</label>
+            <select name="user_type" required onchange="change_name_validator_fullname_company(this.value)">
+                <option value="employee">Employee</option>
+                <option value="job_seeker" selected>Job Seeker</option>
+            </select>
+
+            <label for="full_name" class="change_name_validator_fullname_company">Full Name:</label>
             <input type="text" name="full_name" required>
 
             <label for="password">Password:</label>
             <input type="password" name="password" required>
 
-            <label for="user_type">User Type:</label>
-            <select name="user_type" required>
-                <option value="employee">Employee</option>
-                <option value="job_seeker" selected>Job Seeker</option>
-            </select>
 
             <br>
             <br>

@@ -60,7 +60,7 @@
         
 
         register.php:
-            this will contain a stylish form where user can register with their email address, selecting user type (Employee/Job Seeker), full name, and a password
+            this will contain a stylish form where user can register with their email address, selecting user type (Employee/Job Seeker), full name or company name, and a password
 
 
     after login:

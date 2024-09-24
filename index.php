@@ -9,7 +9,10 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to the Job Portal</h1>
+        <h1>
+            <br>
+            <span>Welcome to the Job Portal</span>
+        </h1>
         <nav>
             <ul>
                 <li><a href="login.php">Login</a></li>
@@ -25,6 +28,12 @@
             <p>Join us today and explore the endless possibilities!</p>
         </section>
     </main>
+
+    <style>
+        main{
+            min-height: calc(100vh - 254px);
+        }
+    </style>
 
     <footer>
         <p>&copy; <?php echo date('Y'); ?> Job Portal. All Rights Reserved.</p>
